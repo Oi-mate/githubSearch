@@ -45,7 +45,6 @@ export class SearchEffects {
       select(selectPagination),
       take(1),
       tap(() => this.store.dispatch(loadingStateChanged({ isLoading: true }))),
-      tap(console.log),
       map((pagination) => ({
         ...pagination,
         ...params,

@@ -7,10 +7,11 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
+  selectCount,
   selectLoading,
   selectResults,
 } from '../../../store/search/search.selectors';
-import { tap } from 'rxjs';
+import {take, tap} from 'rxjs';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { reachedScrollThreshold } from '../../../store/search/search.actions';
 import { IRepository } from '../../../api/ISearch';
@@ -42,14 +43,20 @@ export class SearchResultsComponent {
   constructor(private store: Store) {}
 
   scrolledIndexChange() {
-    if (
-      !this.fetchingPage &&
-      this.scrollRef.getRenderedRange().end >=
-        this.dataLength - SEARCH_SCROLL_GAP
-    ) {
-      this.store.dispatch(reachedScrollThreshold());
-      this.fetchingPage = true;
-    }
+    this.store.select(selectCount).pipe(take(1)).subscribe(
+      count => {
+        if (
+          this.dataLength !== count &&
+          !this.fetchingPage &&
+          this.scrollRef.getRenderedRange().end >=
+          this.dataLength - SEARCH_SCROLL_GAP
+        ) {
+          this.store.dispatch(reachedScrollThreshold());
+          this.fetchingPage = true;
+        }
+      }
+    )
+
   }
 
   showDetails(repo: IRepository) {

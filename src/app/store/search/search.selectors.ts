@@ -30,3 +30,8 @@ export const selectOrder = createSelector(
   selectPagination,
   ({ order }) => order
 );
+
+export const selectCount = createSelector(
+  searchFeature,
+  ({totalCount}) => totalCount
+)

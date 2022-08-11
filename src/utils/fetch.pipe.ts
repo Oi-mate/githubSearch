@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { FetchService } from '../app/api/fetch.service';
-import { Observable, startWith, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Pipe({
   name: 'fetch',
@@ -11,7 +11,6 @@ export class FetchPipe implements PipeTransform {
   // ugly but ok
   transform(value: string): Observable<Record<string, any>> {
     return this.fetchService
-      .get(value)
-      .pipe(startWith('...loading'), tap(console.log));
+      .get(value);
   }
 }
