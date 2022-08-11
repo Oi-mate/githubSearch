@@ -1,0 +1,14 @@
+<div class="owner-details">
+  <img [src]="repo.owner.avatar_url" class="owner-avatar">
+  <label class="owner-name">{{repo.owner.login}}</label>
+  <div class="contributors-details" *ngIf="repo.contributors_url | fetch | async as contributors">
+    <label class="contributors-title">contributors:</label>
+    <div class="contributor" *ngFor="let contributor of contributors | keyvalue | slice:0:10">
+      <img class="contributor-avatar" [src]="contributor.value.avatar_url">
+      <label>{{contributor.value.login}}</label>
+    </div>
+    <label *ngIf="contributors['length'] >= 10">
+      ... and a few more
+    </label>
+  </div>
+</div>

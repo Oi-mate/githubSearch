@@ -1,0 +1,19 @@
+.repo-container {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    background-color: #f1f2f3;
+  }
+
+  .atom-container {
+    display: flex;
+    label {
+      display: block;
+      text-align: right;
+      min-width: 80px;
+      margin-right: 8px;
+    }
+  }
+}

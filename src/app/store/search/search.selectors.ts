@@ -1,20 +1,32 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { ISearchRequest } from '../../api/ISearch';
 import { ISearchState } from './ISearchState';
 
 const searchFeature = createFeatureSelector<ISearchState>('search');
 
 export const selectPagination = createSelector(
   searchFeature,
-  (state: ISearchState) => state.pagination
+  ({ pagination }) => pagination
 );
 
-export const selectSearchQuery = createSelector(
-  selectPagination,
-  (pag: ISearchRequest) => pag.q
-);
+export const selectSearchQuery = createSelector(selectPagination, ({ q }) => q);
 
 export const selectResults = createSelector(
   searchFeature,
-  (state: ISearchState) => state.repositories
+  ({ repositories }) => repositories
+);
+
+export const selectLoading = createSelector(
+  searchFeature,
+  ({ isLoading }) => isLoading
+);
+
+export const selectPage = createSelector(selectPagination, ({ page }) => page);
+
+export const selectSortType = createSelector(
+  selectPagination,
+  ({ sort }) => sort
+);
+export const selectOrder = createSelector(
+  selectPagination,
+  ({ order }) => order
 );

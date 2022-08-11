@@ -13,6 +13,14 @@ import { SearchResultsComponent } from './features/searching/search-results/sear
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SearchResultsRowComponent } from './features/searching/search-results/search-results-row/search-results-row.component';
+import { SpinnerComponent } from './ui/spinner/spinner.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { ContentContainerComponent } from './features/searching/content-container/content-container.component';
+import { RepoDetailsComponent } from './features/details/repo-details/repo-details.component';
+import { FetchPipe } from '../utils/fetch.pipe';
+import { FetchService } from './api/fetch.service';
+import { RepoDetailsDumbComponent } from './features/details/repo-details/repo-details-dumb/repo-details-dumb.component';
+import { OwnerDetailsComponent } from './features/details/repo-details/owner-details/owner-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +29,12 @@ import { SearchResultsRowComponent } from './features/searching/search-results/s
     SearchingLineComponent,
     SearchResultsComponent,
     SearchResultsRowComponent,
+    SpinnerComponent,
+    ContentContainerComponent,
+    RepoDetailsComponent,
+    FetchPipe,
+    RepoDetailsDumbComponent,
+    OwnerDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -28,10 +42,12 @@ import { SearchResultsRowComponent } from './features/searching/search-results/s
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    // not quite angular-material component. but since material uses angular-cdk under the hood I decided why not
+    ScrollingModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot(appEffects),
   ],
-  providers: [SearchService],
+  providers: [SearchService, FetchService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,11 @@
+<div class="repo-details">
+  <label class="title">{{repo.name}}</label>
+  <label class="forks-count">{{repo.forks_count}} forks</label>
+  <ng-container *ngIf="repo.languages_url | fetch | async as langs">
+    <label class="languages-title">languages:</label>
+    <div class="languages" *ngFor="let lang of langs | keyvalue">
+      <span>{{lang.key}}:</span>
+      <span>{{lang.value}}</span>
+    </div>
+  </ng-container>
+</div>

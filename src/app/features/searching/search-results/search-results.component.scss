@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+  .viewport {
+    height: 100%;
+    width: 100%;
+    // hard virtual scroll flickering fix. probably have broken something
+    ::ng-deep.cdk-virtual-scroll-content-wrapper {
+      transform: translateY(0) !important;
+    }
+  }
+
+  .loader-container {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+  }
+
+  app-search-results-row {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,26 @@
+.repo-details {
+  display: flex;
+  flex-direction: column;
+  .title {
+    font-size: 54px;
+  }
+  .forks-count {
+    font-size: 16px;
+  }
+
+  .languages-title {
+    margin-top: 16px;
+    font-size: 30px;
+  }
+
+  .languages {
+    padding-left: 8px;
+    display: flex;
+    span:first-child {
+      display: block;
+      text-align: right;
+      min-width: 120px;
+      margin-right: 8px;
+    }
+  }
+}

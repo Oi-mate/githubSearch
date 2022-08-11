@@ -1,0 +1,2 @@
+<app-search-results (showDetailsCalled)="showDetails($event)" *ngIf="!repo"></app-search-results>
+<app-repo-details *ngIf="repo" [repo]="repo" (back)="this.repo = undefined"></app-repo-details>

@@ -1,0 +1,40 @@
+@import "src/assets/styles/loader";
+
+:host {
+  display: flex;
+}
+
+.container {
+  position: relative;
+  &.loading {
+    pointer-events: none;
+  }
+
+  app-spinner {
+    top: 15px;
+    right: -30px;
+  }
+  .search-line {
+    font-size: 20px;
+    height: 24px;
+    width: 250px;
+    &:focus {
+      outline: none;
+      -webkit-box-shadow: 0px 0px 16px 0px rgba(204,204,204,1);
+      -moz-box-shadow: 0px 0px 16px 0px rgba(204,204,204,1);
+      box-shadow: 0px 0px 16px 0px rgba(204,204,204,1);
+    }
+  }
+  .filter-select {
+    font-size: 20px;
+    margin-left: 16px;
+    height: 30px;
+  }
+  .order-btn {
+    background-color: white;
+    height: 30px;
+    font-size: 20px;
+    margin-left: -1px;
+    border-width: 1px;
+  }
+}

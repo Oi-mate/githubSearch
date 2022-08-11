@@ -1,4 +1,15 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: "Mono", sans-serif;
+}
+
+input, select {
+  font-family: "Mono", sans-serif;
+
+}
+
+@font-face {
+  font-family: "Mono";
+  src: local("Mono"), url(./assets/fonts/ShareTechMono-Regular.ttf) format("truetype");
 }

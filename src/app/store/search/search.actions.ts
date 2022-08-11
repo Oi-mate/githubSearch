@@ -32,7 +32,17 @@ export const searchListFetched = createAction(
   props<{ res: ISearchResponse }>()
 );
 
+export const searchListPaginated = createAction(
+  `${SEARCH_API_ACTION_LABEL} list paginated`,
+  props<{ res: ISearchResponse }>()
+);
+
 export const requestChanged = createAction(
   `${STORE_ACTION_LABEL} pagination changed`,
   props<Partial<ISearchRequest>>()
+);
+
+export const loadingStateChanged = createAction(
+  `${STORE_ACTION_LABEL} loading state changed`,
+  props<{ isLoading: boolean }>()
 );

@@ -1,3 +1,10 @@
 
+<div class="container" [class.loading]="loading | async">
+  <input class="search-line" type="text" [ngModel]="query" (ngModelChange)="setValue($event)">
+  <app-spinner *ngIf="loading | async"></app-spinner>
 
-<input type="text" [ngModel]="query" (ngModelChange)="setValue($event)">
+  <select [ngModel]="sort | async" (ngModelChange)="sortChanged($event)" class="filter-select">
+    <option *ngFor="let option of sortTypes">{{option}}</option>
+  </select>
+  <button class="order-btn" *ngIf="order | async as ord" (click)="toggleOrder()">{{ord === "desc" ? '▼' : '▲'}}</button>
+</div>

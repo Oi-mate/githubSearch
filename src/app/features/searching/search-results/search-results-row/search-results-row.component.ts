@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { IRepository } from '../../../../api/ISearch';
 
 @Component({
@@ -13,12 +7,8 @@ import { IRepository } from '../../../../api/ISearch';
   styleUrls: ['./search-results-row.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchResultsRowComponent implements OnChanges {
+export class SearchResultsRowComponent {
   @Input() data!: IRepository;
 
   constructor() {}
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.data);
-  }
 }

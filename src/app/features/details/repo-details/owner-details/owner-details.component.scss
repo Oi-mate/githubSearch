@@ -1,0 +1,40 @@
+.owner-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  .owner-avatar {
+    max-height: 200px;
+    max-width: 200px;
+    margin-bottom: 8px;
+  }
+  .owner-name {
+    font-size: 40px;
+  }
+  .contributors-details {
+    margin-top: 16px;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .contributors-title {
+      font-size: 20px;
+    }
+    .contributor {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      &:last-child {
+        margin-bottom: 8px;
+      }
+      .contributor-avatar {
+        margin-right: 16px;
+        max-width: 40px;
+        max-height: 40px;
+      }
+      .contributor-name {
+
+      }
+    }
+  }
+}
